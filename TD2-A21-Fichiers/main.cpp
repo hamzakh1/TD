@@ -146,7 +146,7 @@ void enleverJeu(Jeu* jeu, ListeJeux& listeJeux)
 
 	}
 }
-Jeu* lireJeu(istream& fichier)
+Jeu* lireJeu(istream& fichier, ListeJeux& listeJeux)
 {
 	Jeu jeu = {}; // On initialise une structure vide de type Jeu
 	jeu.titre = lireString(fichier);
@@ -177,15 +177,18 @@ ListeJeux creerListeJeux(const string& nomFichier)
 	ListeJeux listeJeux = {};
 	for([[maybe_unused]] int n : iter::range(nElements))
 	{
-		lireJeu(fichier); //TODO: Ajouter le jeu à la ListeJeux.
+		ajouterJeu(listeJeux,lireJeu(fichier,listeJeux)); //TODO: Ajouter le jeu à la ListeJeux.
 	}
 
-	return {}; //TODO: Renvoyer la ListeJeux.
+	return listeJeux; //TODO: Renvoyer la ListeJeux.
 }
 
 //TODO: Fonction pour détruire un designer (libération de mémoire allouée).
 // Lorsqu'on détruit un designer, on affiche son nom pour fins de débogage.
+void detruireDesigner()
+{
 
+}
 //TODO: Fonction qui détermine si un designer participe encore à un jeu.
 
 //TODO: Fonction pour détruire un jeu (libération de mémoire allouée).
@@ -195,7 +198,11 @@ ListeJeux creerListeJeux(const string& nomFichier)
 // qu'un designer a participé (listeJeuxParticipes). Si le designer n'a plus de
 // jeux présents dans sa liste de jeux participés, il faut le supprimer.  Pour
 // fins de débogage, affichez le nom du jeu lors de sa destruction.
-
+void detruireJeu(ListeJeux& listeJeux, Jeu* jeu)
+{
+	int tmp = 0;
+	for ()
+}
 //TODO: Fonction pour détruire une ListeJeux et tous ses jeux.
 
 void afficherDesigner(const Designer& d)
