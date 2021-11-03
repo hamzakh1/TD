@@ -5,8 +5,8 @@ class VilainHeros : public Vilain, public Heros
 public:
 	VilainHeros((const Heros& heros, const Vilain& vilain)) //assign
 	{
-		vilainHeros_.setNom(heros.getHeros().getNom() + "-" + vilain.getVilain().getNom());
 		vilainHeros_.setTitre(heros.getHeros().getTitre() + "-" + vilain.getVilain().getTItre());
+		vilainHeros_.setNom(heros.getHeros().getNom() + "-" + vilain.getVilain().getNom());
 		missionSpeciale_ = vilain.getObjectif() + " dans le monde de " + heros.getHeros().getTitre();
 	}
 	afficher()
@@ -17,9 +17,6 @@ public:
 		cout << "Missions speciale : " << missionSpeciale_ << endl;
 	}
 private:
-	Personnage vilainHeros_;
 	string missionSpeciale_;
-	Vilain objectif_;
-	Heros allies_;
 
 };

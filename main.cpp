@@ -1,6 +1,12 @@
 #include <fstream>
 #include "bibliotheque_cours.hpp"
-
+#include "Vilain.h"
+#include "Heros.h"
+//#include "Personnage.h"
+#include "VilainHeros.h"
+#include "Affichable.h"
+#include <vector>
+#include <iostream>
 using UInt8  = uint8_t;
 using UInt16 = uint16_t;
 
@@ -49,5 +55,12 @@ int main()
 	fichierVilains.exceptions(ios::failbit);
 
 	//TODO: Votre code pour le main commence ici
-	
+	vector<Heros> heros;
+	vector<Vilain> vilain;
+	vector<Personnage> personnage;
+
+
+
+
+
 }

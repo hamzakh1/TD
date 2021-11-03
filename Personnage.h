@@ -1,15 +1,15 @@
-#pragma once
-
-using namespace std
+#include "Affichable.h"
+#include <string>
 
 class Personnage : public Affichable
 {
 public:
+	Personnage() = default;
+	Personnage(const string nom, const string titre) : nom_(nom), titre_(titre) {}
 	string getNom() { return nom_; }
-	string setNom(string nom) nom_(nom) {};
 	string getTitre() { return titre_; }
-	string setTitre(string titre) titre_(titre){};
-	void afficher() override{cout << "\033[" << getCouleur() << "Nom: " << nom_ << endl << "Parution: " << titre_ << endl;}
+	void afficher() override{cout << getCouleur() << "Nom: " << nom_ << endl << "Parution: " << titre_ << endl;}
+	void changerCouleur(int couleur) override { cout << "\033[" << couleur << "m"; }
 
 private:
 	string nom_;

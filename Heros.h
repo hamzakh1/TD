@@ -1,26 +1,28 @@
-#pragma once
+
+#include "Personnage.h"
 
 class Heros : virtual public Personnage
 {
 public:
-	Personnage getHero(Personnage hero) hero_(hero) {}
-	string getEnnemi(string ennemi) ennemi_(ennemi) {}
-	vector<Personnage> getAllies(vector<Personnage> allies) allies_(allies) {}
-	void printAllies()
+	Heros() = default;
+	Heros(const string nom, const string titre, const string ennemi, vector<string> allies) : 
+		Personnage(nom, titre), ennemi_(ennemi), allies_(allies) {}
+	string getEnnemi() { return ennemi_; }
+	vector<string> getAllies() { return allies_; }
+	void printAllies(vector<string> allies_)
 	{
 		for (auto i : allies_) // maybe add && to auto (to be verified)
-			cout << i.getNom() << endl;
+			cout << i << endl;
 	}
 	void afficher()  //maybe add ostream& os if cout does not work
 	{ 
-		hero_.afficher();
+		Personnage :: afficher();
 		cout << "Ennemi : " << ennemi_ << endl << "Allies : ";
-		printAllies();
+		printAllies(allies_);
 		
 	}
 private:
-	Personnage hero_;
 	string ennemi_;
-	vector<Personnage> allies_;
+	vector<string> allies_;
 
 };
