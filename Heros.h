@@ -21,6 +21,10 @@ public:
 		printAllies(allies_);
 		
 	}
+	void addAllies(string ally)
+	{
+		allies_.push_back(ally);
+	}
 private:
 	string ennemi_;
 	vector<string> allies_;

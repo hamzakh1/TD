@@ -59,6 +59,15 @@ int main()
 	vector<Vilain> vilain;
 	vector<Personnage> personnage;
 
+	unsigned lireHero = lireUint16(fichierHeros);
+	for (int i = 0; i < lireHero; i++)
+	{
+		vector<string> allies;
+		string nom = lireString(fichierHeros);
+		string parution = lireString(fichierHeros);
+		string ennemi = lireString(fichierHeros);
+	}
+
 
 
 
