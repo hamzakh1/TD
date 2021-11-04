@@ -4,7 +4,7 @@ class Vilain : virtual public Personnage
 {
 public:
 	Vilain() = default;
-	Vilain(const string nom, const string titre, const string objectif, vector<string> allies) :
+	Vilain(const string nom, const string titre, const string objectif) :
 		Personnage(nom, titre), objectif_(objectif) {}
 	string getObjectif() { return objectif_; }
 

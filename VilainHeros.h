@@ -1,20 +1,27 @@
 #pragma once
 
-class VilainHeros : public Vilain, public Heros
+class VilainHeros : public Vilain, Heros
 {
 public:
-	VilainHeros((const Heros& heros, const Vilain& vilain)) //assign
+	VilainHeros() = default;
+
+	VilainHeros(const shared_ptr<Heros> heros, const shared_ptr<Vilain> vilain) ://assign
+		Personnage(vilain->getNom() + " - " + heros->getNom(), vilain->getTitre() + " - " + heros->getTitre()),
+		Heros("", "", heros->getEnnemi(), heros->getAllies()),
+		Vilain("", "", vilain->getObjectif()),
+		missionSpeciale_(vilain->getObjectif() + " dans le monde de " + heros->getTitre())
+	{}
+	void afficher()
 	{
-		vilainHeros_.setTitre(heros.getHeros().getTitre() + "-" + vilain.getVilain().getTItre());
-		vilainHeros_.setNom(heros.getHeros().getNom() + "-" + vilain.getVilain().getNom());
-		missionSpeciale_ = vilain.getObjectif() + " dans le monde de " + heros.getHeros().getTitre();
+		Personnage::afficher();
+		cout << "Objectif ; " << getObjectif() << endl << "Ennemi :" << getEnnemi() << "allies : " << endl;
+		printAllies(getAllies);
+		cout << "Mission speciale : " << missionSpeciale_;
 	}
-	afficher()
+	void changerCouleur(int couleur) 
 	{
-		cout << "Nom: " << vilainHeros_.getNom() << endl << "Parution: " << vilainHeros.getTitre() << endl;
-		cout << "Objectif : " << objectif_.getObjectif() << endl;
-		cout << "allies : " << allies_.printAllies)() << endl;
-		cout << "Missions speciale : " << missionSpeciale_ << endl;
+		Vilain::changerCouleur(couleur);
+		Heros::changerCouleur(couleur);
 	}
 private:
 	string missionSpeciale_;
