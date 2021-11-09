@@ -14,10 +14,10 @@ public:
 		for (auto i : allies_) // maybe add && to auto (to be verified)
 			cout << i << endl;
 	}
-	void afficher()  //maybe add ostream& os if cout does not work
+	void afficher(ostream& os)  //maybe add ostream& os if cout does not work
 	{ 
-		Personnage :: afficher();
-		cout << "Ennemi : " << ennemi_ << endl << "Allies : ";
+		Personnage :: afficher(os);
+		os << "Ennemi : " << ennemi_ << endl << "Allies : ";
 		printAllies(allies_);
 		
 	}

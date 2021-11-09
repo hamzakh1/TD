@@ -1,4 +1,7 @@
 #pragma once
+#include "Personnage.h"
+#include "Vilain.h"
+#include "Heros.h"
 
 class VilainHeros : public Vilain, Heros
 {
@@ -11,17 +14,17 @@ public:
 		Vilain("", "", vilain->getObjectif()),
 		missionSpeciale_(vilain->getObjectif() + " dans le monde de " + heros->getTitre())
 	{}
-	void afficher()
+	void afficher(ostream& os)
 	{
-		Personnage::afficher();
-		cout << "Objectif ; " << getObjectif() << endl << "Ennemi :" << getEnnemi() << "allies : " << endl;
-		printAllies(getAllies);
-		cout << "Mission speciale : " << missionSpeciale_;
+		Personnage::afficher(os);
+		os << "Objectif ; " << getObjectif() << endl << "Ennemi :" << getEnnemi() << "allies : " << endl;
+		printAllies(getAllies());
+		os << "Mission speciale : " << missionSpeciale_;
 	}
-	void changerCouleur(int couleur) 
+	void changerCouleur(ostream& os, int couleur)
 	{
-		Vilain::changerCouleur(couleur);
-		Heros::changerCouleur(couleur);
+		Vilain::changerCouleur(os,couleur);
+		Heros::changerCouleur(os,couleur);
 	}
 private:
 	string missionSpeciale_;
